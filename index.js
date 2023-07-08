@@ -1,2 +1,7 @@
-const contacts = require("./contacts.js");
-console.log("Hello World");
+const {
+  listContacts,
+  getContactById,
+  removeContact,
+  addContact,
+  log,
+} = require("./contacts.js");
