@@ -19,7 +19,7 @@ async function getContactById(contactId) {
     const result = contactsList.find(({ id }) => id === contactId);
     return result || null;
   } catch (error) {
-    console.log(error);
+    throw new Error("No contact with such ID");
   }
 }
 
@@ -30,9 +30,9 @@ async function removeContact(contactId) {
     if (index === -1) return null;
     const [result] = contacts.splice(index, 1);
     await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
-    return result;
+    return result || null;
   } catch (error) {
-    console.log(error);
+    throw new Error("No contact with such ID");
   }
 }
 async function addContact(name, email, phone) {
@@ -48,7 +48,7 @@ async function addContact(name, email, phone) {
     await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
     return newConatcts;
   } catch (error) {
-    console.log(error);
+    throw new Error("Error, failed to add contact.");
   }
 }
 
