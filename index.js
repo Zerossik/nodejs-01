@@ -3,7 +3,6 @@ const {
   getContactById,
   removeContact,
   addContact,
-  log,
 } = require("./contacts.js");
 const argv = require("yargs").argv;
 

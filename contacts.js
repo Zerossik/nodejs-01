@@ -52,12 +52,9 @@ async function addContact(name, email, phone) {
   }
 }
 
-const log = async (clg, value) => console.log(await clg(value));
-
 module.exports = {
   listContacts,
   getContactById,
   removeContact,
   addContact,
-  log,
 };
